@@ -1,30 +1,26 @@
-import { Outlet, Link } from "react-router-dom";
-import "./App.css"; // Include your styles
+import { AppShell, NavLink } from "@mantine/core";
+import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+function Layout() {
   return (
-    <div>
-      <div className="sidebar">
-        <Link className="active" to="/">
-          Home
-        </Link>
-        <Link to="/map">Map</Link>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-      <div className="navbar">
-        <Link className="active" to="/">
-          Home
-        </Link>
-        <Link to="/map">Map</Link>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-      <div id="content">
-        <Outlet /> {/* This is where the nested routes will render */}
-      </div>
-    </div>
+    <AppShell
+      padding="md"
+      header={{ height: 60 }}
+      navbar={{
+        width: 300,
+        breakpoint: "sm",
+      }}
+    >
+      <AppShell.Header>Header</AppShell.Header>
+      <AppShell.Navbar>
+        <NavLink href="/" label="Home" />
+        <NavLink href="/map" label="Map" />
+      </AppShell.Navbar>
+      <AppShell.Main p={0}>
+        <Outlet />
+      </AppShell.Main>
+    </AppShell>
   );
-};
+}
 
 export default Layout;
