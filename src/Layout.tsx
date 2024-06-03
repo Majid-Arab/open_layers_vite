@@ -1,4 +1,4 @@
-import { AppShell, NavLink } from "@mantine/core";
+import { AppShell, Checkbox, NavLink } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
@@ -15,6 +15,7 @@ function Layout() {
       <AppShell.Navbar>
         <NavLink href="/" label="Home" />
         <NavLink href="/map" label="Map" />
+        <Checkbox label="Open Layer" />
       </AppShell.Navbar>
       <AppShell.Main p={0}>
         <Outlet />
