@@ -31,6 +31,7 @@ const shopFeatures = shopData.map((shop) => {
   return new Feature({
     geometry: new Point(fromLonLat(shop.coordinates)),
     name: shop.name,
+    id: shop.id,
   });
 });
 
