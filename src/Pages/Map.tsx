@@ -10,7 +10,7 @@ import { vectorLayer } from "../layers/randomShops";
 import { fromLonLat } from "ol/proj";
 import { Select } from "ol/interaction";
 import { click } from "ol/events/condition";
-import { Drawer, Title } from "@mantine/core";
+import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 type ShopInfo = {
@@ -49,7 +49,7 @@ const Map = () => {
       select.on("select", (e) => {
         if (e.selected.length > 0) {
           const feature = e.selected[0];
-          const { name, id } = feature?.getProperties();
+          const { name, id } = feature.getProperties();
           setShopInfo({ name, id });
         }
         open();
